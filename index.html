@@ -28,12 +28,13 @@
         }
 
         header {
-            background-color: rgba(255, 255, 255, 0.95);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            background-color: #d32f2f; /* Красная шапка */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
             position: sticky;
             top: 0;
             z-index: 1000;
             padding: 15px 0;
+            color: white;
         }
 
         .header-content {
@@ -52,13 +53,14 @@
 
         .logo h1 {
             font-size: 28px;
-            color: #1a3c6e;
+            color: #fff;
             margin-bottom: 5px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
         }
 
         .logo p {
             font-size: 16px;
-            color: #d12c2c;
+            color: #ffeb3b; /* Желтый цвет для подзаголовка */
             font-weight: bold;
         }
 
@@ -67,7 +69,7 @@
             overflow-x: auto;
             white-space: nowrap;
             scrollbar-width: thin;
-            scrollbar-color: #1a3c6e #f0f0f0;
+            scrollbar-color: #ffeb3b #d32f2f;
             padding-bottom: 5px;
         }
 
@@ -78,30 +80,33 @@
 
         .tab {
             padding: 12px 20px;
-            background-color: #f0f0f0;
-            color: #333;
+            background-color: #ffeb3b; /* Желтый цвет для вкладок */
+            color: #d32f2f; /* Красный цвет текста */
             border-radius: 5px;
             margin-right: 10px;
             cursor: pointer;
             transition: all 0.3s ease;
             font-weight: 500;
             text-decoration: none;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
 
         .tab:hover {
-            background-color: #e0e0e0;
+            background-color: #fdd835; /* Темно-желтый при наведении */
+            transform: translateY(-2px);
         }
 
         .tab.active {
-            background-color: #1a3c6e;
-            color: white;
+            background-color: #ffc107; /* Золотистый для активной вкладки */
+            color: #b71c1c; /* Темно-красный текст */
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
         }
 
         .content {
             max-width: 1200px;
             margin: 30px auto;
             padding: 30px;
-            background-color: rgba(255, 255, 255, 0.9);
+            background: linear-gradient(135deg, #ffeb3b 0%, #ffc107 100%); /* Желтый градиент */
             border-radius: 10px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
@@ -133,7 +138,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background-color: rgba(0, 0, 0, 0.5);
+            background: linear-gradient(135deg, rgba(211, 47, 47, 0.7) 0%, rgba(183, 28, 28, 0.7) 100%); /* Красный градиент с прозрачностью */
             border-radius: 10px;
         }
 
@@ -145,37 +150,50 @@
         .hero h2 {
             font-size: 36px;
             margin-bottom: 15px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
         }
 
         .hero p {
             font-size: 24px;
             margin-bottom: 20px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
         }
 
         .years {
             font-size: 32px;
             font-weight: bold;
-            color: #d12c2c;
-            background-color: rgba(255, 255, 255, 0.8);
+            color: #d32f2f;
+            background-color: #ffeb3b;
             padding: 10px 20px;
             border-radius: 5px;
             display: inline-block;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
         }
 
         h2 {
-            color: #1a3c6e;
+            color: #b71c1c; /* Темно-красный для заголовков */
             margin-bottom: 20px;
             padding-bottom: 10px;
-            border-bottom: 2px solid #d12c2c;
+            border-bottom: 2px solid #d32f2f;
+        }
+
+        h3 {
+            color: #d32f2f; /* Красный для подзаголовков */
+            margin-bottom: 15px;
         }
 
         p {
             line-height: 1.6;
             margin-bottom: 15px;
+            color: #333;
         }
 
         .section {
             margin-bottom: 30px;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
         }
 
         .gallery {
@@ -190,10 +208,12 @@
             overflow: hidden;
             box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease;
+            background-color: white;
         }
 
         .gallery-item:hover {
             transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
 
         .gallery-item img, .gallery-item video {
@@ -206,18 +226,21 @@
             padding: 10px;
             background-color: #f9f9f9;
             text-align: center;
+            color: #333;
+            border-top: 2px solid #ffeb3b;
         }
 
         .archive-item {
-            background-color: #f9f9f9;
+            background-color: white;
             padding: 20px;
             border-radius: 5px;
             margin-bottom: 20px;
             box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            border-left: 4px solid #d32f2f;
         }
 
         .archive-item h3 {
-            color: #1a3c6e;
+            color: #d32f2f;
             margin-bottom: 10px;
         }
 
@@ -229,10 +252,11 @@
         }
 
         .memory-card {
-            background-color: #f9f9f9;
+            background-color: white;
             border-radius: 5px;
             overflow: hidden;
             box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            border-top: 4px solid #d32f2f;
         }
 
         .memory-card img {
@@ -246,7 +270,7 @@
         }
 
         .memory-info h3 {
-            color: #1a3c6e;
+            color: #d32f2f;
             margin-bottom: 10px;
         }
 
@@ -273,7 +297,7 @@
         footer {
             text-align: center;
             padding: 20px;
-            background-color: #1a3c6e;
+            background-color: #d32f2f;
             color: white;
             margin-top: 50px;
         }
@@ -289,7 +313,7 @@
         }
 
         .tabs-container::-webkit-scrollbar-thumb {
-            background-color: #1a3c6e;
+            background-color: #ffeb3b;
             border-radius: 4px;
         }
 
@@ -380,7 +404,7 @@
                         </div>
                         <div class="gallery-item">
                             <img src="https://via.placeholder.com/300x200?text=Выпускники" alt="Выпускники школы">
-                            <div class="gallery-caption">Выпускники 1970 года</div>
+                                                        <div class="gallery-caption">Выпускники 1970 года</div>
                         </div>
                         <div class="gallery-item">
                             <img src="https://via.placeholder.com/300x200?text=Учителя" alt="Педагогический коллектив">
@@ -404,13 +428,13 @@
                         </div>
                     </div>
                     
-                    <p><a href="#" style="color: #1a3c6e; text-decoration: underline;">Скачать электронную версию книги (PDF)</a></p>
+                    <p><a href="#" style="color: #d32f2f; text-decoration: underline; font-weight: bold;">Скачать электронную версию книги (PDF)</a></p>
                 </div>
             </div>
 
             <!-- Памятники республики Бурятия -->
             <div class="page" id="monuments">
-                                <h2>Памятники республики Бурятия</h2>
+                <h2>Памятники республики Бурятия</h2>
                 
                 <div class="section">
                     <p>Республика Бурятия богата памятниками, посвященными Великой Отечественной войне и героическому подвигу нашего народа. В этом разделе представлены видеоматериалы о наиболее значимых мемориалах и памятниках.</p>
@@ -606,7 +630,7 @@
                                 <source src="videos/story1.mp4" type="video/mp4">
                                 Ваш браузер не поддерживает видео.
                             </video>
-                            <div class="gallery-caption">Иванов Петр, 7А класс - "История моего прадеда"</div>
+                                                        <div class="gallery-caption">Иванов Петр, 7А класс - "История моего прадеда"</div>
                         </div>
                         <div class="gallery-item">
                             <video controls>
@@ -636,7 +660,7 @@
                     
                     <div class="gallery">
                         <div class="gallery-item">
-                                                        <img src="https://via.placeholder.com/300x200?text=Ветеран+1" alt="Ветеран войны">
+                            <img src="https://via.placeholder.com/300x200?text=Ветеран+1" alt="Ветеран войны">
                             <div class="gallery-caption">Иванов И.И., артиллерист, 1941-1945</div>
                         </div>
                         <div class="gallery-item">
