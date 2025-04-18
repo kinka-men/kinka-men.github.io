@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
@@ -24,20 +24,18 @@
     .overlay {
         background-color: rgba(255, 255, 255, 0.95);
         min-height: 100vh;
-        padding-bottom: 50px;
+        padding-bottom: 50px; /* Ensure space below content */
     }
 
-    header {
-        background-color: rgba(211, 47, 47, 0.9); /* Полупрозрачная красная шапка */
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-        position: sticky;
-        top: 0;
-        z-index: 1000;
+    /* --- Header for Logo Only --- */
+    .main-header {
+        background-color: rgba(211, 47, 47, 0.9); /* Semi-transparent red */
         padding: 15px 0;
         color: white;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: subtle shadow */
     }
 
-    .header-content {
+    .header-content { /* Used only for logo centering now */
         max-width: 1200px;
         margin: 0 auto;
         padding: 0 20px;
@@ -48,7 +46,7 @@
 
     .logo {
         text-align: center;
-        margin-bottom: 15px;
+        /* margin-bottom: 15px; Removed, handled by header padding */
     }
 
     .logo h1 {
@@ -60,28 +58,44 @@
 
     .logo p {
         font-size: 16px;
-        color: #fff9c4; /* Светло-желтый цвет для подзаголовка, ближе к белому */
+        color: #fff9c4; /* Light yellow for subtitle */
         font-weight: bold;
     }
 
-    .tabs-container {
-        width: 100%;
+    /* --- Sticky Tabs Header --- */
+    .tabs-header {
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        background-color: rgba(211, 47, 47, 0.95); /* Slightly more opaque red for better readability when sticky */
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        color: white; /* Ensure contrast for any potential text */
+    }
+
+    .tabs-container { /* Holds the scrollable tabs, centered */
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px; /* Padding inside the centered container */
         overflow-x: auto;
         white-space: nowrap;
         scrollbar-width: thin;
         scrollbar-color: #fff9c4 #d32f2f;
-        padding-bottom: 5px;
+        /* padding-bottom: 5px; Moved to .tabs-header padding */
+    }
+
+    .tabs-header-inner { /* Inner div for padding of the tabs row */
+         padding: 10px 0 5px 0; /* Top/Bottom padding for the tabs */
     }
 
     .tabs {
         display: inline-flex;
-        min-width: 100%;
+        min-width: 100%; /* Ensure it tries to fill container */
     }
 
     .tab {
         padding: 12px 20px;
-        background-color: rgba(255, 235, 59, 0.8); /* Полупрозрачный желтый цвет для вкладок */
-        color: #d32f2f; /* Красный цвет текста */
+        background-color: rgba(255, 235, 59, 0.8); /* Semi-transparent yellow */
+        color: #d32f2f; /* Red text */
         border-radius: 5px;
         margin-right: 10px;
         cursor: pointer;
@@ -89,22 +103,28 @@
         font-weight: 500;
         text-decoration: none;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        flex-shrink: 0; /* Prevent tabs from shrinking */
     }
 
+     .tab:last-child {
+         margin-right: 0; /* Remove margin from last tab */
+     }
+
     .tab:hover {
-        background-color: rgba(253, 216, 53, 0.9); /* Полупрозрачный темно-желтый при наведении */
+        background-color: rgba(253, 216, 53, 0.9); /* Darker yellow on hover */
         transform: translateY(-2px);
     }
 
     .tab.active {
-        background-color: #fff9c4; /* Светло-желтый для активной вкладки, ближе к белому */
-        color: #b71c1c; /* Темно-красный текст */
+        background-color: #fff9c4; /* Light yellow active */
+        color: #b71c1c; /* Dark red text */
         box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
     }
 
+    /* --- Content --- */
     .content {
         max-width: 1200px;
-        margin: 30px auto;
+        margin: 30px auto; /* Margin top adjusted automatically by sticky */
         padding: 30px;
         background-color: white;
         border-radius: 10px;
@@ -138,28 +158,28 @@
         left: 0;
         right: 0;
         bottom: 0;
-        background-color: rgba(255, 249, 196, 0.7); /* Полупрозрачный светло-желтый фон, ближе к белому */
+        background-color: rgba(255, 249, 196, 0.7); /* Semi-transparent light yellow */
         border-radius: 10px;
     }
 
     .hero-content {
         position: relative;
         z-index: 1;
-        color: #333; /* Темный текст для лучшей читаемости на светлом фоне */
+        color: #333; /* Dark text for readability */
     }
 
     .hero h2 {
         font-size: 36px;
         margin-bottom: 15px;
         text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.5);
-        color: #d32f2f; /* Красный цвет для заголовка */
+        color: #d32f2f; /* Red header */
     }
 
     .hero p {
         font-size: 24px;
         margin-bottom: 20px;
         text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
-        color: #333; /* Темный цвет для текста */
+        color: #333; /* Dark text */
     }
 
     .years {
@@ -174,14 +194,14 @@
     }
 
     h2 {
-        color: #d32f2f; /* Красный для заголовков */
+        color: #d32f2f; /* Red for headers */
         margin-bottom: 20px;
         padding-bottom: 10px;
         border-bottom: 2px solid #d32f2f;
     }
 
     h3 {
-        color: #d32f2f; /* Красный для подзаголовков */
+        color: #d32f2f; /* Red for sub-headers */
         margin-bottom: 15px;
     }
 
@@ -223,6 +243,7 @@
         width: 100%;
         height: 200px;
         object-fit: cover;
+        display: block; /* Prevents small gap below image */
     }
 
     .gallery-caption {
@@ -266,6 +287,7 @@
         width: 100%;
         height: 250px;
         object-fit: cover;
+        display: block; /* Prevents small gap below image */
     }
 
     .memory-info {
@@ -287,6 +309,8 @@
         padding-bottom: 56.25%; /* 16:9 */
         height: 0;
         margin-bottom: 20px;
+        overflow: hidden; /* Ensure iframe fits */
+        border-radius: 5px; /* Optional: round corners */
     }
 
     .video-container iframe {
@@ -300,47 +324,59 @@
     footer {
         text-align: center;
         padding: 20px;
-        background-color: rgba(211, 47, 47, 0.9); /* Полупрозрачный красный для подвала */
+        background-color: rgba(211, 47, 47, 0.9); /* Semi-transparent red footer */
         color: white;
-        margin-top: 50px;
+        margin-top: 50px; /* Spacing above footer */
     }
 
-    /* Стили для скроллбара */
+    /* Scrollbar Styles */
     .tabs-container::-webkit-scrollbar {
         height: 8px;
     }
 
     .tabs-container::-webkit-scrollbar-track {
-        background: #f0f0f0;
+        background: rgba(0, 0, 0, 0.1); /* Darker track on red background */
         border-radius: 4px;
     }
 
     .tabs-container::-webkit-scrollbar-thumb {
-        background-color: #fff9c4; /* Светло-желтый для скроллбара */
+        background-color: #fff9c4; /* Light yellow thumb */
         border-radius: 4px;
     }
+     .tabs-container::-webkit-scrollbar-thumb:hover {
+         background-color: #fdd835; /* Darker yellow on hover */
+     }
 
     @media (max-width: 768px) {
         .logo h1 {
             font-size: 22px;
         }
-        
+
+        /* Adjust padding for smaller screens if needed */
+        .tabs-container {
+             padding: 0 15px;
+        }
+        .tab {
+            padding: 10px 15px;
+        }
+
         .content {
             padding: 20px;
+            margin: 20px auto; /* Adjust content margin */
         }
-        
+
         .hero {
             padding: 30px 15px;
         }
-        
+
         .hero h2 {
             font-size: 28px;
         }
-        
+
         .hero p {
             font-size: 18px;
         }
-        
+
         .years {
             font-size: 24px;
         }
@@ -349,13 +385,20 @@
 </head>
 <body>
     <div class="overlay">
-        <header>
+        <!-- Part 1: Logo Header (Scrolls away) -->
+        <div class="main-header">
             <div class="header-content">
                 <div class="logo">
                     <h1>Виртуальный музей Улан-Удэ МАОУ СОШ №17 "Хранители Памяти"</h1>
                     <p>80 лет Великой Победы</p>
                 </div>
-                <div class="tabs-container">
+            </div>
+        </div>
+
+        <!-- Part 2: Tabs Header (Becomes sticky) -->
+        <div class="tabs-header">
+            <div class="tabs-container">
+                 <div class="tabs-header-inner"> <!-- Added inner div for padding -->
                     <div class="tabs">
                         <a href="#" class="tab active" data-page="home">Главная</a>
                         <a href="#" class="tab" data-page="history">История школы</a>
@@ -365,10 +408,11 @@
                         <a href="#" class="tab" data-page="war-history">Война в истории моей школы</a>
                         <a href="#" class="tab" data-page="svo">СВО</a>
                     </div>
-                </div>
+                 </div>
             </div>
-        </header>
+        </div>
 
+        <!-- Main Content Area -->
         <div class="content">
             <!-- Главная страница -->
             <div class="page active" id="home">
@@ -379,7 +423,7 @@
                         <div class="years">1945-2025</div>
                     </div>
                 </div>
-                
+
                 <div class="section">
                     <h2>О нашем музее</h2>
                     <p>Добро пожаловать в виртуальный музей МАОУ СОШ №17 города Улан-Удэ "Хранители Памяти". Наш музей создан с целью сохранения исторической памяти о Великой Отечественной войне, о подвиге нашего народа и о вкладе жителей Бурятии в Великую Победу.</p>
@@ -391,11 +435,11 @@
             <!-- История школы -->
             <div class="page" id="history">
                 <h2>История школы</h2>
-                
+
                 <div class="section">
                     <h3>Юбилей школы</h3>
                     <p>История нашей школы началась в [год основания] году. За эти годы школа прошла долгий и славный путь, воспитав не одно поколение достойных граждан нашей страны.</p>
-                    
+
                     <div class="gallery">
                         <div class="gallery-item">
                             <img src="https://via.placeholder.com/300x200?text=Фото+школы+1" alt="Историческое фото школы">
@@ -407,7 +451,7 @@
                         </div>
                         <div class="gallery-item">
                             <img src="https://via.placeholder.com/300x200?text=Выпускники" alt="Выпускники школы">
-                                                        <div class="gallery-caption">Выпускники 1970 года</div>
+                            <div class="gallery-caption">Выпускники 1970 года</div>
                         </div>
                         <div class="gallery-item">
                             <img src="https://via.placeholder.com/300x200?text=Учителя" alt="Педагогический коллектив">
@@ -415,11 +459,11 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="section">
                     <h3>Книга на 50 лет</h3>
                     <p>К 50-летнему юбилею школы была издана памятная книга, в которой собраны воспоминания выпускников, учителей, исторические фотографии и документы. Предлагаем вам ознакомиться с электронной версией этого уникального издания.</p>
-                    
+
                     <div class="gallery">
                         <div class="gallery-item">
                             <img src="https://i.imgur.com/5ML39CS.jpeg" alt="Обложка юбилейной книги">
@@ -430,7 +474,7 @@
                             <div class="gallery-caption">Страница из юбилейной книги</div>
                         </div>
                     </div>
-                    
+
                     <p><a href="#" style="color: #d32f2f; text-decoration: underline; font-weight: bold;">Скачать электронную версию книги (PDF)</a></p>
                 </div>
             </div>
@@ -438,38 +482,39 @@
             <!-- Памятники республики Бурятия -->
             <div class="page" id="monuments">
                 <h2>Памятники республики Бурятия</h2>
-                
+
                 <div class="section">
                     <p>Республика Бурятия богата памятниками, посвященными Великой Отечественной войне и героическому подвигу нашего народа. В этом разделе представлены видеоматериалы о наиболее значимых мемориалах и памятниках.</p>
-                    
+
                     <div class="video-container">
-                        <iframe width="560" height="315" src="https://www.youtube.com/embed/placeholder" title="Памятники Великой Отечественной войны в Бурятии" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <!-- Replace placeholder with actual video embed code -->
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                     </div>
-                    
+
                     <div class="gallery">
                         <div class="gallery-item">
-                            <video controls>
+                            <video controls poster="https://via.placeholder.com/300x200/ccc/fff?text=Video+Preview+1">
                                 <source src="videos/monument1.mp4" type="video/mp4">
                                 Ваш браузер не поддерживает видео.
                             </video>
                             <div class="gallery-caption">Мемориал Победы в Улан-Удэ</div>
                         </div>
                         <div class="gallery-item">
-                            <video controls>
+                             <video controls poster="https://via.placeholder.com/300x200/ccc/fff?text=Video+Preview+2">
                                 <source src="videos/monument2.mp4" type="video/mp4">
                                 Ваш браузер не поддерживает видео.
                             </video>
                             <div class="gallery-caption">Памятник воинам-бурятам</div>
                         </div>
                         <div class="gallery-item">
-                            <video controls>
+                             <video controls poster="https://via.placeholder.com/300x200/ccc/fff?text=Video+Preview+3">
                                 <source src="videos/monument3.mp4" type="video/mp4">
                                 Ваш браузер не поддерживает видео.
                             </video>
                             <div class="gallery-caption">Вечный огонь</div>
                         </div>
                         <div class="gallery-item">
-                            <video controls>
+                             <video controls poster="https://via.placeholder.com/300x200/ccc/fff?text=Video+Preview+4">
                                 <source src="videos/monument4.mp4" type="video/mp4">
                                 Ваш браузер не поддерживает видео.
                             </video>
@@ -477,39 +522,39 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="section">
                     <h3>Интерактивная карта памятников</h3>
                     <p>На этой карте отмечены все значимые памятники и мемориалы Великой Отечественной войны в Республике Бурятия. Нажмите на маркер, чтобы узнать подробную информацию о памятнике.</p>
-                    
-                    <div style="width: 100%; height: 400px; background-color: #f0f0f0; display: flex; justify-content: center; align-items: center; margin-top: 20px; border-radius: 5px;">
-                        <p>Здесь будет интерактивная карта памятников</p>
+
+                    <div style="width: 100%; height: 400px; background-color: #f0f0f0; display: flex; justify-content: center; align-items: center; margin-top: 20px; border-radius: 5px; border: 1px solid #ddd;">
+                        <p style="color: #666; text-align: center;">[Интерактивная карта будет встроена здесь]<br>(Например, с использованием Yandex Maps API или Google Maps API)</p>
                     </div>
                 </div>
             </div>
 
             <!-- Архив уголка боевой славы -->
-            <div class="page" id="archive">
+             <div class="page" id="archive">
                 <h2>Архив уголка боевой славы</h2>
-                
+
                 <div class="section">
                     <p>В этом разделе представлены архивные материалы из уголка боевой славы нашей школы. Здесь вы найдете документы, фотографии, письма и другие свидетельства героического прошлого.</p>
-                    
+
                     <div class="archive-item">
                         <h3>Фронтовые письма</h3>
                         <p>Коллекция писем с фронта, написанных выпускниками и учителями нашей школы. Эти письма - бесценные свидетельства военного времени, передающие дух эпохи и чувства людей, защищавших нашу Родину.</p>
                         <div class="gallery">
                             <div class="gallery-item">
-                                <img src="https://via.placeholder.com/300x200?text=Письмо+1" alt="Фронтовое письмо">
+                                <img src="https://via.placeholder.com/300x400?text=Письмо+1+(Вертикальное)" alt="Фронтовое письмо">
                                 <div class="gallery-caption">Письмо Иванова И.И., 1943 г.</div>
                             </div>
                             <div class="gallery-item">
-                                <img src="https://via.placeholder.com/300x200?text=Письмо+2" alt="Фронтовое письмо">
+                                <img src="https://via.placeholder.com/300x400?text=Письмо+2+(Вертикальное)" alt="Фронтовое письмо">
                                 <div class="gallery-caption">Письмо Петрова П.П., 1944 г.</div>
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="archive-item">
                         <h3>Фотографии военных лет</h3>
                         <p>Архивные фотографии выпускников и учителей школы, участвовавших в Великой Отечественной войне. На этих снимках запечатлены моменты фронтовой жизни, боевые товарищи, минуты отдыха между боями.</p>
@@ -528,17 +573,17 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="archive-item">
                         <h3>Наградные документы</h3>
                         <p>Копии наградных листов, приказов о награждении и других документов, свидетельствующих о боевых подвигах наших земляков.</p>
                         <div class="gallery">
                             <div class="gallery-item">
-                                <img src="https://via.placeholder.com/300x200?text=Документ+1" alt="Наградной документ">
+                                <img src="https://via.placeholder.com/300x400?text=Документ+1+(Вертикальный)" alt="Наградной документ">
                                 <div class="gallery-caption">Наградной лист Н.П. Смирнова</div>
                             </div>
                             <div class="gallery-item">
-                                <img src="https://via.placeholder.com/300x200?text=Документ+2" alt="Наградной документ">
+                                <img src="https://via.placeholder.com/300x400?text=Документ+2+(Вертикальный)" alt="Наградной документ">
                                 <div class="gallery-caption">Приказ о награждении медалью "За отвагу"</div>
                             </div>
                         </div>
@@ -549,10 +594,10 @@
             <!-- Предметы эпохи -->
             <div class="page" id="items">
                 <h2>Предметы эпохи</h2>
-                
+
                 <div class="section">
                     <p>В этом разделе представлены фотографии предметов военного времени и послевоенной эпохи: игрушки, элементы военной амуниции, предметы быта. Эти вещи помогают нам лучше понять, как жили люди в то непростое время.</p>
-                    
+
                     <h3>Игрушки военного и послевоенного времени</h3>
                     <div class="gallery">
                         <div class="gallery-item">
@@ -572,7 +617,7 @@
                             <div class="gallery-caption">Заводной танк, 1960-е годы</div>
                         </div>
                     </div>
-                    
+
                     <h3>Элементы военной амуниции</h3>
                     <div class="gallery">
                         <div class="gallery-item">
@@ -592,7 +637,7 @@
                             <div class="gallery-caption">Компас</div>
                         </div>
                     </div>
-                    
+
                     <h3>Предметы быта военного времени</h3>
                     <div class="gallery">
                         <div class="gallery-item">
@@ -618,49 +663,50 @@
             <!-- Война в истории моей школы -->
             <div class="page" id="war-history">
                 <h2>Война в истории моей школы</h2>
-                
+
                 <div class="section">
                     <p>В этом разделе собраны видеоматериалы, в которых ученики нашей школы рассказывают о своих родственниках - участниках Великой Отечественной войны, комментируют фотографии и делятся семейными историями.</p>
-                    
+
                     <div class="video-container">
-                        <iframe width="560" height="315" src="https://www.youtube.com/embed/placeholder" title="Война в истории моей семьи" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                         <!-- Replace placeholder with actual video embed code -->
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/yPYZpwSpKmA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                     </div>
-                    
+
                     <h3>Видеорассказы учеников</h3>
                     <div class="gallery">
                         <div class="gallery-item">
-                            <video controls>
+                             <video controls poster="https://via.placeholder.com/300x200/ccc/fff?text=Video+Story+1">
                                 <source src="videos/story1.mp4" type="video/mp4">
                                 Ваш браузер не поддерживает видео.
                             </video>
-                                                        <div class="gallery-caption">Иванов Петр, 7А класс - "История моего прадеда"</div>
+                            <div class="gallery-caption">Иванов Петр, 7А класс - "История моего прадеда"</div>
                         </div>
                         <div class="gallery-item">
-                            <video controls>
+                             <video controls poster="https://via.placeholder.com/300x200/ccc/fff?text=Video+Story+2">
                                 <source src="videos/story2.mp4" type="video/mp4">
                                 Ваш браузер не поддерживает видео.
                             </video>
                             <div class="gallery-caption">Петрова Анна, 9Б класс - "Медсестра на фронте"</div>
                         </div>
                         <div class="gallery-item">
-                            <video controls>
+                             <video controls poster="https://via.placeholder.com/300x200/ccc/fff?text=Video+Story+3">
                                 <source src="videos/story3.mp4" type="video/mp4">
                                 Ваш браузер не поддерживает видео.
                             </video>
                             <div class="gallery-caption">Сидоров Алексей, 11А класс - "Танкист Сидоров"</div>
                         </div>
                         <div class="gallery-item">
-                            <video controls>
+                             <video controls poster="https://via.placeholder.com/300x200/ccc/fff?text=Video+Story+4">
                                 <source src="videos/story4.mp4" type="video/mp4">
                                 Ваш браузер не поддерживает видео.
                             </video>
                             <div class="gallery-caption">Смирнова Ольга, 8В класс - "Письма с фронта"</div>
                         </div>
                     </div>
-                    
+
                     <h3>Проект "Лица Победы"</h3>
                     <p>В рамках проекта "Лица Победы" ученики нашей школы собирают и оцифровывают фотографии своих родственников - участников Великой Отечественной войны, записывают их истории и создают виртуальную галерею памяти.</p>
-                    
+
                     <div class="gallery">
                         <div class="gallery-item">
                             <img src="https://via.placeholder.com/300x200?text=Ветеран+1" alt="Ветеран войны">
@@ -680,11 +726,11 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="section">
                     <h3>Учителя-фронтовики</h3>
                     <p>После войны многие фронтовики пришли работать в нашу школу учителями. Они не только передавали знания, но и воспитывали в учениках патриотизм, мужество и любовь к Родине.</p>
-                    
+
                     <div class="gallery">
                         <div class="gallery-item">
                             <img src="https://via.placeholder.com/300x200?text=Учитель+1" alt="Учитель-фронтовик">
@@ -705,13 +751,13 @@
             <!-- СВО -->
             <div class="page" id="svo">
                 <h2>СВО - Специальная военная операция</h2>
-                
+
                 <div class="section">
                     <p>В этом разделе мы чтим память выпускников нашей школы, погибших при исполнении воинского долга в ходе специальной военной операции. Их подвиг и самопожертвование навсегда останутся в наших сердцах.</p>
-                    
+
                     <h3>Доска памяти</h3>
                     <p>Мы помним и гордимся нашими выпускниками, отдавшими жизнь за Родину.</p>
-                    
+
                     <div class="memory-wall">
                         <div class="memory-card">
                             <img src="https://via.placeholder.com/300x400?text=Фото+героя" alt="Герой СВО">
@@ -745,11 +791,11 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="section">
                     <h3>Мероприятия памяти</h3>
                     <p>В нашей школе регулярно проводятся мероприятия, посвященные памяти выпускников, погибших при исполнении воинского долга.</p>
-                    
+
                     <div class="gallery">
                         <div class="gallery-item">
                             <img src="https://via.placeholder.com/300x200?text=Мероприятие+1" alt="Мероприятие памяти">
@@ -769,11 +815,11 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="section">
                     <h3>Письма поддержки</h3>
                     <p>Ученики нашей школы регулярно пишут письма поддержки военнослужащим, участвующим в специальной военной операции.</p>
-                    
+
                     <div class="gallery">
                         <div class="gallery-item">
                             <img src="https://via.placeholder.com/300x200?text=Письмо+1" alt="Письмо поддержки">
@@ -799,34 +845,45 @@
             // Обработка переключения вкладок
             const tabs = document.querySelectorAll('.tab');
             const pages = document.querySelectorAll('.page');
-            
+            const tabsContainer = document.querySelector('.tabs-container'); // For scrolling logic if needed
+
             tabs.forEach(tab => {
                 tab.addEventListener('click', function(e) {
                     e.preventDefault();
-                    
-                    // Удаляем активный класс у всех вкладок и страниц
+
+                    // Remove active class from all tabs and pages
                     tabs.forEach(t => t.classList.remove('active'));
                     pages.forEach(p => p.classList.remove('active'));
-                    
-                    // Добавляем активный класс текущей вкладке
+
+                    // Add active class to the clicked tab
                     this.classList.add('active');
-                    
-                    // Показываем соответствующую страницу
+
+                    // Show the corresponding page
                     const pageId = this.getAttribute('data-page');
-                    document.getElementById(pageId).classList.add('active');
-                    
-                    // Прокручиваем страницу вверх
-                    window.scrollTo(0, 0);
+                    const targetPage = document.getElementById(pageId);
+                    if (targetPage) {
+                         targetPage.classList.add('active');
+                    }
+
+                    // Scroll page to top (optional, can be jarring with sticky header)
+                    // window.scrollTo({ top: 0, behavior: 'smooth' }); // Smooth scroll might be better
+
+                    // Scroll the clicked tab into view if tabs are scrollable horizontally
+                     this.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
                 });
             });
-            
-            // Горизонтальная прокрутка вкладок с помощью колесика мыши
-            const tabsContainer = document.querySelector('.tabs-container');
-            
-            tabsContainer.addEventListener('wheel', function(e) {
-                e.preventDefault();
-                this.scrollLeft += e.deltaY;
-            });
+
+            // Horizontal scroll for tabs using mouse wheel (optional)
+             if (tabsContainer) {
+                tabsContainer.addEventListener('wheel', function(e) {
+                    // Only scroll horizontally if horizontal scrollbar is present
+                    if (this.scrollWidth > this.clientWidth) {
+                        e.preventDefault();
+                        // Adjust sensitivity if needed
+                        this.scrollLeft += e.deltaY > 0 ? 50 : -50;
+                    }
+                }, { passive: false }); // Need passive: false to preventDefault
+             }
         });
     </script>
 </body>
