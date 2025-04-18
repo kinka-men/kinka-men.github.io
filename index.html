@@ -30,13 +30,11 @@
     header {
         background-color: rgba(211, 47, 47, 0.9); /* Полупрозрачная красная шапка */
         box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        padding: 15px 0;
         color: white;
-        transition: transform 0.3s ease;
-    }
-
-    /* Шапка уходит вверх при прокрутке */
-    header.scrolled {
-        transform: translateY(-100%);
     }
 
     .header-content {
@@ -51,7 +49,6 @@
     .logo {
         text-align: center;
         margin-bottom: 15px;
-        padding-top: 15px;
     }
 
     .logo h1 {
@@ -67,24 +64,13 @@
         font-weight: bold;
     }
 
-    .tabs-container-wrapper {
-        position: sticky;
-        top: 0;
-        z-index: 1000;
-        background-color: rgba(211, 47, 47, 0.9); /* Полупрозрачная красная шапка */
-        padding: 10px 0;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-    }
-
     .tabs-container {
         width: 100%;
-        max-width: 1200px;
-        margin: 0 auto;
         overflow-x: auto;
         white-space: nowrap;
         scrollbar-width: thin;
         scrollbar-color: #fff9c4 #d32f2f;
-        padding: 0 20px;
+        padding-bottom: 5px;
     }
 
     .tabs {
@@ -226,7 +212,6 @@
         box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
         transition: transform 0.3s ease;
         background-color: white;
-        cursor: pointer;
     }
 
     .gallery-item:hover {
@@ -234,22 +219,10 @@
         box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
     }
 
-    .gallery-item-image {
-        position: relative;
+    .gallery-item img, .gallery-item video {
         width: 100%;
-        padding-top: 75%; /* Соотношение сторон 4:3 */
-        overflow: hidden;
-    }
-
-    .gallery-item-image img, 
-    .gallery-item-image video {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: contain; /* Сохраняет соотношение сторон */
-        background-color: #f5f5f5;
+        height: 200px;
+        object-fit: cover;
     }
 
     .gallery-caption {
@@ -258,55 +231,6 @@
         text-align: center;
         color: #333;
         border-top: 1px solid #eee;
-    }
-
-    /* Модальное окно для просмотра изображений */
-    .modal {
-        display: none;
-        position: fixed;
-        z-index: 2000;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.9);
-        overflow: auto;
-    }
-
-    .modal-content {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100%;
-        padding: 20px;
-    }
-
-    .modal-image {
-        max-width: 90%;
-        max-height: 90%;
-        object-fit: contain;
-    }
-
-    .modal-video {
-        max-width: 90%;
-        max-height: 90%;
-    }
-
-    .close {
-        position: absolute;
-        top: 15px;
-        right: 35px;
-        color: #f1f1f1;
-        font-size: 40px;
-        font-weight: bold;
-        transition: 0.3s;
-        cursor: pointer;
-    }
-
-    .close:hover,
-    .close:focus {
-        color: #bbb;
-        text-decoration: none;
     }
 
     .archive-item {
@@ -342,7 +266,6 @@
         width: 100%;
         height: 250px;
         object-fit: cover;
-        cursor: pointer;
     }
 
     .memory-info {
